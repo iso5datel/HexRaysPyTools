@@ -20,7 +20,11 @@ def is_imported_ea(ea):
 
 
 def is_code_ea(ea):
-    if idaapi.cvar.inf.procname == "ARM":
+    try:
+        t = idaapi.cvar.inf.procname
+    except:
+        t = ida_ida.inf_get_procname()
+    if t == "ARM":
         # In case of ARM code in THUMB mode we sometimes get pointers with thumb bit set
         flags = idaapi.get_full_flags(ea & -2)  # flags_t
     else:
