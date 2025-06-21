@@ -1,6 +1,7 @@
 import collections
 import logging
 
+import ida_ida
 import idaapi
 import idc
 
