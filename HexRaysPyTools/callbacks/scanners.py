@@ -128,9 +128,9 @@ class DeepScanFunctions(actions.Action):
 
     def update(self, ctx):
         try:
-            t = ctx.form_type
-        except:
             t = ctx.widget_type
+        except:
+            t = ctx.form_type
         if t == idaapi.BWN_FUNCS:
             idaapi.attach_action_to_popup(ctx.widget, None, self.name)
             return idaapi.AST_ENABLE_FOR_WIDGET
